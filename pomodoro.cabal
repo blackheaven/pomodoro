@@ -35,6 +35,27 @@ test-suite spec
   autogen-modules:
     Paths_pomodoro
   ghc-options: -threaded -rtsopts -with-rtsopts=-N -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wpartial-fields -Wredundant-constraints
+  default-extensions:
+    DataKinds
+    DefaultSignatures
+    DeriveAnyClass
+    DeriveGeneric
+    DerivingStrategies
+    DerivingVia
+    DuplicateRecordFields
+    FlexibleContexts
+    GADTs
+    GeneralizedNewtypeDeriving
+    KindSignatures
+    LambdaCase
+    OverloadedStrings
+    OverloadedRecordDot
+    RankNTypes
+    RecordWildCards
+    ScopedTypeVariables
+    TypeApplications
+    TypeFamilies
+    TypeOperators
   build-depends:
       base
     -- , pomodoro
