@@ -26,7 +26,7 @@ library
     Paths_pomodoro
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wpartial-fields -Wredundant-constraints
 
-test-suite pomodo-spec
+test-suite spec
   type: exitcode-stdio-1.0
   hs-source-dirs: test
   main-is: Spec.hs

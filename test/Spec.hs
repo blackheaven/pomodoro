@@ -10,4 +10,5 @@ main = hspec spec
 spec :: Spec
 spec =
   describe "Pomodoro" $ do
-    return ()
+    it "should fail" $
+      False `shouldBe` True
