@@ -16,6 +16,7 @@ common common-all
   default-language: GHC2021
   build-depends:
       base == 4.*
+    , aeson
     , time >= 1.9 && < 2
     , text
   default-extensions:
@@ -66,3 +67,12 @@ test-suite spec
     , pomodoro
     , hspec
     , hspec-core
+    , hspec-wai
+    , http-client
+    , http-types
+    , servant
+    , servant-client
+    , servant-client-core
+    , servant-server
+    , wai
+    , warp

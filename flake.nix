@@ -33,9 +33,11 @@
           pkgs.mkShell {
             buildInputs = with haskellPackages; [
               haskell-language-server
+              ormolu
               ghcid
               cabal-install
               scripts
+              pkgs.just
             ];
             inputsFrom = [
               self.defaultPackage.${system}.env
