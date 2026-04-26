@@ -6,6 +6,7 @@ import Data.IORef (IORef, newIORef, readIORef, writeIORef)
 import Data.Time.Clock.POSIX (POSIXTime)
 import GHC.Generics
 import Network.Wai
+import Network.Wai.Handler.Warp (run)
 import Pomodoro.Domain
 import Servant
 import Servant.Server.Generic (AsServerT, genericServeT)
@@ -49,6 +50,10 @@ healthServer =
 
 app :: Env -> Application
 app env = genericServeT (flip runReaderT env . (.unAppM)) healthServer
+
+startApp :: IO ()
+startApp =
+  run 8080 . app =<< mkEnv
 
 newtype AppM m a
   = AppM {unAppM :: ReaderT Env m a}
