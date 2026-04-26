@@ -1,5 +1,6 @@
 module Pomodoro.Domain
   ( sequenceStatus,
+    sequenceStatus',
     Config (..),
     classicalConfig,
     Event (..),
@@ -31,7 +32,7 @@ classicalConfig :: Config
 classicalConfig = Config {pomodoro = minutes 25, shortPause = minutes 5, longPause = minutes 15}
 
 data Event = StartedWork POSIXTime | StartedBreak POSIXTime
-  deriving stock (Generic)
+  deriving stock (Eq, Show, Generic)
   deriving anyclass (FromJSON, ToJSON)
 
 sequenceStatus :: Config -> [Event] -> POSIXTime -> SequenceStatus
@@ -53,3 +54,6 @@ sequenceStatus config starts queriedAt =
       \case
         StartedWork _ -> True
         StartedBreak _ -> False
+
+sequenceStatus' :: [Event] -> POSIXTime -> SequenceStatus
+sequenceStatus' = sequenceStatus classicalConfig

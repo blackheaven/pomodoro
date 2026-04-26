@@ -17,8 +17,12 @@ common common-all
   build-depends:
       base == 4.*
     , aeson
+    , mtl
+    , servant
+    , servant-server
     , time >= 1.9 && < 2
     , text
+    , wai
   default-extensions:
     DataKinds
     DefaultSignatures
@@ -46,6 +50,7 @@ library
   hs-source-dirs: src
   exposed-modules:
     Pomodoro.Domain
+    Pomodoro.Web
   other-modules:
     Paths_pomodoro
   autogen-modules:
@@ -70,9 +75,6 @@ test-suite spec
     , hspec-wai
     , http-client
     , http-types
-    , servant
     , servant-client
     , servant-client-core
-    , servant-server
-    , wai
     , warp
