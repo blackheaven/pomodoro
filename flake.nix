@@ -31,13 +31,14 @@
             };
           in
           pkgs.mkShell {
-            buildInputs = with haskellPackages; [
+            buildInputs = with haskellPackages; with pkgs.elmPackages; [
               haskell-language-server
               ormolu
               ghcid
               cabal-install
               scripts
               pkgs.just
+              elm elm-format elm-language-server
             ];
             inputsFrom = [
               self.defaultPackage.${system}.env
